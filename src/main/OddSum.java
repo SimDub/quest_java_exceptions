@@ -7,28 +7,32 @@ public class OddSum {
     }
 
     public static int run(String[] args, boolean test) {
+        try {
+            ArrayList<Integer> listInt = new ArrayList<>();
+            int res;
+            if (!test) {
+                System.out.println("Elements' list :");
+                for (String v : args)
+                    System.out.print(" " + v);
+                System.out.println();
+            }
+            for (int i = 0; i < args.length; i++) {
+                listInt.add(Integer.parseInt(args[i]));
+            }
 
-        ArrayList<Integer> listInt = new ArrayList<>();
-        int res;
-        if (!test) {
-            System.out.println("Elements' list :");
-            for (String v : args)
-                System.out.print(" " + v);
-            System.out.println();
-        }
-        for (int i = 0; i < args.length; i++) {
-            listInt.add(Integer.parseInt(args[i]));
-        }
+            res = sum(listInt);
+            if (test) {
+                return res;
+            }
 
-        res = sum(listInt);
-        if (test) {
-            return res;
-        }
-
-        System.out.println("Sum of odd elements : " + res);
-        System.out.println("END!");
-
-        return 0;
+            System.out.println("Sum of odd elements : " + res);
+            System.out.println("END!");
+        }catch (NumberFormatException e) {
+            System.err.println("Ce doit etre un nombre !!");
+        }catch (AssertionError f) {
+            System.err.println("C'est pas bon !!");
+        }catch ()
+            return 0;
     }
 
     public static int sum(ArrayList<Integer> listInt) {
